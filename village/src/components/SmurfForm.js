@@ -23,6 +23,7 @@ class SmurfForm extends Component {
         height: ''
       }
     });
+    this.props.history.push('/');
   }
 
   handleInputChange = e => {
