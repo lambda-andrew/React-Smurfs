@@ -20,7 +20,7 @@ class Smurfs extends Component {
   render() {
     return (
       <SmurfsDiv>
-        <img src={img}/>
+        <img src={img} alt ="smurfs movie"/>
         <h1>Smurf Village</h1>
         
           {this.props.smurfs.map(smurf => {

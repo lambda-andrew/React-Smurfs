@@ -41,7 +41,7 @@ class SmurfForm extends Component {
   }
 
   addSmurf = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     axios
       .post("http://localhost:3333/smurfs")
       .then(res => {
@@ -64,7 +64,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <SmurfFormDiv>
-        <img src={img}/>
+        <img src={img} alt="cartoon smurfs"/>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
