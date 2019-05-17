@@ -4,3 +4,119 @@
 *{
   box-sizing: border-box;
 }
+*:focus{
+  outline: none;
+}
+.App nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #88ccff;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  color: #fff
+}
+
+.App nav a {
+  padding: 35px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.Smurfs {
+  min-height: 1000px;
+  margin-top: 85px;
+  background: #fafafa;
+}
+
+.Smurfs div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+
+.Smurf {
+  display: block !important;
+  margin-top: 20px;
+  padding: 0;
+  background: #88ccff;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.Smurf button {
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.update {
+  display: flex !important;
+  align-items: center;
+  width: 20%;
+  flex-direction: column;
+}
+
+.update form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.update form input {
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.update button {
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.update button:hover {
+  background: #fafafa;
+  color: #88ccff;
+}
+
+.SmurfForm {
+  margin-top: 300px;
+}
+
+.SmurfForm h2 {
+  color: #88ccff;
+}
+
+.SmurfForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #88ccff;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.SmurfForm form input {
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.SmurfForm button {
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+}

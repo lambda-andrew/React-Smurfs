@@ -33,7 +33,7 @@ class SmurfUpdate extends React.Component {
 
     render() {
         return (
-            <div className="Smurf">
+            <div className="update Smurf">
               <form onSubmit={this.updateInfo}>
                   <input name='name' value={this.state.smurf.name} onChange={this.handleInputChange}/>
                   <input name='age' value={this.state.smurf.age} onChange={this.handleInputChange}/>
