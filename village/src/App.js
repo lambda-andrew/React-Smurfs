@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
-import axios from 'axios'
+import { Route } from 'react-router-dom';
+import axios from 'axios';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import NavBar from './components/nav';
 
 class App extends Component {
   constructor(props) {
@@ -15,24 +16,17 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    this.allSmurfs();
+  }
+
+  allSmurfs = () => {
     axios
     .get("http://localhost:3333/smurfs")
     .then((smurfs) => {
-      this.setState({smurfs: smurfs.data})
+      this.setState({ smurfs: smurfs.data })
     })
     .catch((error) =>{
       console.log('Looks like Gargamel took your smurf(s)!', error)
-    })
-  }
-
-  addSmurf = (smurf) => {
-    axios
-    .post(this.state.serverUrl, smurf)
-    .then((aSm) => {
-      this.setState({smurfs: aSm.data})
-    })
-    .catch((error) => {
-      console.log('Gargamel cast a spell to prevent more smurfs!', error);
     })
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -41,11 +35,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <Route path="/" component={NavBar} />
 
-        <Route exact path="/" component = {Smurfs} />
-        <Route path="/smurf-form" component = {SmurfForm} />
+        <Route path="/smurfs" render={props => {
+          return (
+            <div>
+              <SmurfForm {...props} addSmurf={this.addSmurf} />
+              <Smurfs {...props} smurfs={this.state.smurfs} />
+            </div>
+          )
+        }} />
+
       </div>
     );
   }
