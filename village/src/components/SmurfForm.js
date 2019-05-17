@@ -41,7 +41,7 @@ class SmurfForm extends Component {
   }
 
   addSmurf = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     axios
       .post("http://localhost:3333/smurfs")
       .then(res => {
@@ -49,7 +49,7 @@ class SmurfForm extends Component {
           smurfs: {
           name: res.data.name,
           age: res.data.age,
-          height: res.data.height
+          height: res.data.height,
           }
         });
         this.props.history.push("/");
