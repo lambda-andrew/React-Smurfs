@@ -45,7 +45,7 @@ class App extends Component {
         });
         this.props.history.push("/");
       })
-      .catch(err => console.log(err.response.data.Error))
+      .catch(err => console.log(err))
   }
 
   render() {

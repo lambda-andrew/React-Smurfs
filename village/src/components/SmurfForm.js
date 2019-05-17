@@ -46,7 +46,7 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ smurf:{...this.state.smurf, [e.target.name]: e.target.value }});
   };
 
   render() {
