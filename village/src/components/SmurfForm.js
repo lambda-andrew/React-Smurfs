@@ -17,7 +17,7 @@ class SmurfForm extends Component {
     // add code to create the smurf using the api
     Axios.post('http://localhost:3333/smurfs', this.state)
     .then(res => {
-       console.log(res.data)
+       console.log(res.data) // did not know what to do with res, so sent it off into the void
     })
     .catch(err => {console.log(err)})
 
@@ -26,7 +26,9 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     });
-    this.props.history.push("/");
+    this.props.history.push("/"); /* this returns to the smurfs page, but it does 
+                                     not refresh the page with newest input. do not know why
+                                    page must be refreshed manually for new input to show up */
   }
 
   handleInputChange = e => {

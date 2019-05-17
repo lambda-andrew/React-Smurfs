@@ -29,8 +29,32 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the differences between `client-side routing` and `server-side routing`.
+
+Client-side:
+Javscript can manage data w/in an application in memory.  This is convenient b/c now the browser
+has what it needs in memory to render pages.  It does not have to make a request to the server.
+If more data is needed, an API request can receive JSON data which is easy to extract and display.
+A whole page does not need to be sent back from the server.
+
+Server-side:
+A user goes to a website and the website requests data from a server for that site. The server 
+returns an HTML doc, image, video, etc., to the browser to be displayed.  The server has to compile
+all that information then send it off to the user to view.  The browser has to refresh the page
+in order to display the content.
+
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+Post => Create
+Get => Read
+Put => Update
+Delete => Delete
+
 - [ ] Mention three tools we can use to make AJAX requests.
+
+1. FetchAPI
+2. Axios
+3. JQuery
 
 
 ## Project Set Up
