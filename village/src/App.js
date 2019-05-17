@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      message: "",
+      activeSmurf: null,
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -39,7 +39,6 @@ class App extends Component {
     console.log(res.data, "This is updated data!")
     this.setState({
       smurfs: res.data,
-      message: "Three cheers for our new Smurf friend!"
     })
     this.props.history.push("/smurfs")
   })
@@ -48,19 +47,36 @@ class App extends Component {
   })
   }
 
+  populateForm = smurf => {
+    this.setState({
+      activeSmurf: smurf
+    })
+    this.props.history.push("/smurf-form")
+  }
+
+  updateSmurf = smurf => {
+    Axios.put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
+    .then(res => {
+      this.setState({
+        activeSmurf: null,
+        smurfs: res.data,
+      })
+      this.props.history.push("/smurfs")
+    })
+    .catch(err => console.log(err, "Papa Smurf is always right!"))
+  }
+
   deleteSmurf = (id) => {
     Axios.delete(`http://localhost:3333/smurfs/${id}`)
     .then(res => {
       console.log(res.data, "Don't just look at me, call Papa Smurf!")
       this.setState({
         smurfs: res.data,
-        message: "Oh no! Gargamel ate a smurf!"
       })
     })
     .catch(err => {
       console.log(err, "False alarm everybody! Go back to your Smurf duties!")
       this.setState({
-        message: "Papa Smurf always saves the day!"
       })
     })
   }
@@ -76,9 +92,8 @@ class App extends Component {
         </nav>
         <Route exact path="/" component={Home}/>
         <Route exact path="/smurfs" render={props => (<Smurfs {...props} smurfs={this.state.smurfs}/>) }/>
-        <Route path="/smurf-form" render={props => (<SmurfForm {...props} addSmurf={this.addSmurf}/>) }/>
-        <Route path="/smurfs/:id" render={props =>(<Smurf {...props} items={this.state.smurfs} deleteSmurf={this.deleteSmurf} />) }/>
-        <h1>{this.state.message}</h1>
+        <Route path="/smurf-form" render={props => (<SmurfForm {...props} addSmurf={this.addSmurf} activeSmurf={this.state.activeSmurf} updateSmurf={this.updateSmurf}/>) }/>
+        <Route path="/smurfs/:id" render={props =>(<Smurf {...props} items={this.state.smurfs} deleteSmurf={this.deleteSmurf} populateForm={this.populateForm}/>) }/>
       </div>
     );
   }

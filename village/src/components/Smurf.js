@@ -1,4 +1,5 @@
 import React from 'react';
+import './Smurfs.css';
 
 function Smurf (props) {
   const item = props.items.find(
@@ -14,12 +15,18 @@ function Smurf (props) {
     props.deleteSmurf(props.match.params.id);
   }
 
+  const populateHandler = event => {
+    event.preventDefault();
+    props.populateForm(item)
+  }
+
   return (
-    <div className="Smurf">
+    <div className="smurf">
       <h3>{item.name}</h3>
       <strong>{item.height} tall</strong>
       <p>{item.age} smurf years old</p>
-      <button onClick={deleteHandler}>Delete Smurf!</button>
+      <button className="smurfbutton" onClick={deleteHandler}>Delete Smurf!</button>
+      <button className="smurfbutton" onClick={populateHandler}>Update Smurf!</button>
     </div>
   );
 };
