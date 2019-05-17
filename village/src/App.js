@@ -10,8 +10,6 @@ import Smurfs from './components/Smurfs';
 
 const AppDiv = styled.div`
   width: 1440px
-  height: 500px
-  background-color: #88ccff
   display: flex
   flex-direction: column
   align-items: center`;
