@@ -29,8 +29,8 @@ class App extends Component {
   })
   }
 
-  addSmurf = () => {
-  Axios.post('http://localhost:3333/smurfs')
+  addSmurf = (smurf) => {
+  Axios.post('http://localhost:3333/smurfs', smurf)
   .then(res => {
     console.log(res.data, "This is updated data!")
     this.setState({
