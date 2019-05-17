@@ -1,11 +1,20 @@
 import React from 'react';
 
-const Smurf = props => {
+function Smurf (props) {
+  const item = props.items.find(
+    thing => `${thing.id}` === props.match.params.id
+  );
+
+  if (!props.items.length || !item){
+    return <h2>Searching for Smurf</h2>
+  }
+
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      <h3>{item.name}</h3>
+      <strong>{item.height} tall</strong>
+      <p>{item.age} smurf years old</p>
+      <button>Delete Smurf!</button>
     </div>
   );
 };
