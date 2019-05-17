@@ -2,6 +2,34 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+const Form =styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 10px 0;
+`;
+
+const Input =styled.input`
+width: 400px;
+height: 40px;
+background-color: white;
+text-align: center;
+border-radius: 5px;
+border: white;
+`;
+
+const Button = styled.button`
+width: 410px;
+height: 60px;
+background-color: #62fdbe;
+text-align: center;
+border-radius: 5px;
+margin: 40px;
+font-size: 15px;
+border: none;
+`;
+
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -46,27 +74,32 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.addSmurf}>
-          <input
+
+        <Form onSubmit={this.addSmurf}>
+        <p>NAME</p>
+          <Input
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
           />
-          <input
+          <p>AGE</p>
+          <Input
             onChange={this.handleInputChange}
             placeholder="age"
             value={this.state.age}
             name="age"
           />
-          <input
+          <p>HEIGHT</p>
+          <Input
             onChange={this.handleInputChange}
             placeholder="height"
             value={this.state.height}
             name="height"
           />
-          <button type="submit">Add to the village</button>
-        </form>
+          <Button type="submit" onClick={(event)=> this.addSmurf(event)}> ADD TO THE VILLAGE</Button>
+        </Form>
+
       </div>
     );
   }
