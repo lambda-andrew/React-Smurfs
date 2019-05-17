@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SmurfDiv = styled.div`
+border-radius: 8px
+border: 2px solid black
+padding: 0 15px;
 h3 {
   font-family: 'Fredoka One', cursive;
 }
