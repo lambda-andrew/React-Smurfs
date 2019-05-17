@@ -1,0 +1,16 @@
+.smurflist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.smurfcard {
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+    width: 40%;
+    margin: 5px;
+}
+.smurfcard:hover {
+    color: white;
+    background: #88ccff;
+}

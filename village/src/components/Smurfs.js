@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Smurf from './Smurf';
+import './Smurfs.css'
 
 class Smurfs extends Component {
 
@@ -14,20 +15,13 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              // <Smurf
-              //   name={smurf.name}
-              //   id={smurf.id}
-              //   age={smurf.age}
-              //   height={smurf.height}
-              //   key={smurf.id}
-              // />
-    
-              <div onClick={e => this.routeToSmurf(e, smurf)}>
+              <div className="smurflist">
+              <div className="smurfcard" onClick={e => this.routeToSmurf(e, smurf)}>
                 <h3>{smurf.name}</h3>
                 <strong>{smurf.height} cm tall</strong>
                 <p>{smurf.age} smurf years old</p>
               </div>
-          
+              </div>
             );
           })}
         </ul>

@@ -1,4 +1,38 @@
-.App {
-  text-align: center;
-  margin: 0 auto;
+.navs {
+  display: flex;
+}
+a {
+  font-size: 20px;
+  color: black;
+  border: 1px solid #88ccff;
+  padding: 5px;
+  text-decoration: none;
+  margin: 0 5px 0 5px;
+}
+a:hover {
+  color:white;
+  background:#88ccff;
+  border: 1px solid black;
+}
+.home {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items:center;
+}
+.options-1{
+  display: flex;
+  flex-flow: column wrap;
+  margin: 5px; 
+  border-left: 1px solid black;
+  padding-left: 10px;
+}
+.options{
+  display: flex;
+  flex-flow: column wrap;
+  margin: 5px; 
+}
+.optionsbox{
+  display: flex;
+  margin: 5px;
 }
