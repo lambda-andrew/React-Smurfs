@@ -9,12 +9,17 @@ function Smurf (props) {
     return <h2>Searching for Smurf</h2>
   }
 
+  const deleteHandler = event => {
+    event.preventDefault();
+    props.deleteSmurf(props.match.params.id);
+  }
+
   return (
     <div className="Smurf">
       <h3>{item.name}</h3>
       <strong>{item.height} tall</strong>
       <p>{item.age} smurf years old</p>
-      <button>Delete Smurf!</button>
+      <button onClick={deleteHandler}>Delete Smurf!</button>
     </div>
   );
 };
