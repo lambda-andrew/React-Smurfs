@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import Styled from 'styled-components';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <FormWrapper>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -55,9 +56,43 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      </div>
+      </FormWrapper>
     );
   }
 }
+
+const FormWrapper = Styled.div `
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      width: 200px;
+      font-size: 1rem;
+      padding: 5px;
+      margin-top: 8px;
+      border-radius: 3px;
+      border: none;
+      border-bottom: 1px solid lightgray;
+      :focus {
+        outline: none;
+      }
+      :first-child {
+        margin-top: 40px;
+      }
+    }
+
+    button {
+      margin-top: 30px;
+      width: 210px;
+      padding: 5px;
+      font-size: 1rem;
+      border-radius: 3px;
+      background-color: lightblue;
+    }
+  }
+
+`
 
 export default SmurfForm;
