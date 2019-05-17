@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+// import Smurf from './Smurf';
 
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      smurfs: {
       name: '',
       age: '',
       height: ''
+      }
     };
   }
 
@@ -18,12 +21,15 @@ class SmurfForm extends Component {
       .post("http://localhost:3333/smurfs")
       .then(res => {
         this.setState({
+          smurfs: {
           name: res.data.name,
           age: res.data.age,
           height: res.data.height
+          }
         });
+        this.props.history.push("/");
       })
-      .catch(err => console.log("Hello, here is your error: ", err))
+      .catch(err => console.log(err.response.data.Error))
   }
 
   handleInputChange = e => {

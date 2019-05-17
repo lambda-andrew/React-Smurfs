@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import Smurf from './Smurf';
+
+const SmurfsDiv = styled.div`
+display: flex
+flex-direction: column
+align-items: center
+h1{
+  font-family: 'Fredoka One', cursive;
+}`;
 
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <SmurfsDiv>
         <h1>Smurf Village</h1>
-        <ul>
+        
           {this.props.smurfs.map(smurf => {
             return (
               <Smurf
@@ -19,8 +28,8 @@ class Smurfs extends Component {
               />
             );
           })}
-        </ul>
-      </div>
+        
+      </SmurfsDiv>
     );
   }
 }
