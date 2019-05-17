@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
