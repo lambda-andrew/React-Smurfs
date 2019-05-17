@@ -28,8 +28,9 @@ class SmurfForm extends Component {
     });
   
   axios
-  .get('http://localhost:3333/smurfs', newSmurf)
+  .post('http://localhost:3333/smurfs', newSmurf)
   .then (response=> {
+    this.props.setSmurfs(response.data);
     this.props.history.push('/');
   })
   .catch (error => {
