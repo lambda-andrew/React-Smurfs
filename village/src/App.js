@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
@@ -19,28 +19,39 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchSmurfs()
-    
+
   }
-  
+
   fetchSmurfs = () => {
     axios
-    .get("http://localhost:3333/smurfs") 
-        .then(res => {
-            console.log(res.data);
-            this.setState({ smurfs: res.data });
-        })
-        .catch(err => {
-            this.setState({
-                message: "Data fetching failed!"
-            });
+      .get("http://localhost:3333/smurfs")
+      .then(res => {
+        console.log(res.data);
+        this.setState({ smurfs: res.data });
+      })
+      .catch(err => {
+        this.setState({
+          message: "Data fetching failed!"
         });
-      }     
-  
+      });
+  }
+
   render() {
     return (
       <div className="App">
-        <SmurfForm refreshData={this.fetchSmurfs} />
-        <Smurfs smurfs={this.state.smurfs} />
+        <div className="nav-bar">
+          <NavLink to="/" exact activeClassName="active">Home</NavLink> |
+          <NavLink to="/smurf-form" activeClassName="active">Form</NavLink>
+        </div>
+
+        <Route path="/" exact render={() =>
+          <Smurfs smurfs={this.state.smurfs} />
+        }>
+        </Route>
+        <Route path="/smurf-form" render={() =>
+          <SmurfForm refreshData={this.fetchSmurfs} />
+        }>
+        </Route>
       </div>
     );
   }
