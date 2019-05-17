@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 // import Smurf from './Smurf';
 
-import img from '../smurfs-cartoon.jpg'
+import img from '../smurfs.jpg'
 
 const SmurfFormDiv = styled.div`
 img{
@@ -12,7 +12,7 @@ img{
   border: 2px solid black
 }
 form {
-  margin-left: 13px;
+  margin-left: 75px;
   margin-top: 10px
 }
 input {
@@ -64,7 +64,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <SmurfFormDiv>
-        <img src={img} alt="cartoon smurfs"/>
+        <img src={img} alt="smurfs movie"/>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}

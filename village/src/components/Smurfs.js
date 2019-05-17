@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Smurf from './Smurf';
-import img from '../smurfs.jpg'
+
+import img from '../smurfs-cartoon.jpg'
 
 const SmurfsDiv = styled.div`
 display: flex
@@ -20,7 +21,7 @@ class Smurfs extends Component {
   render() {
     return (
       <SmurfsDiv>
-        <img src={img} alt ="smurfs movie"/>
+        <img src={img} alt ="cartoon smurfs"/>
         <h1>Smurf Village</h1>
         
           {this.props.smurfs.map(smurf => {
