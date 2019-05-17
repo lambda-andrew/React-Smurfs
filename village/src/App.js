@@ -19,17 +19,33 @@ class App extends Component {
   componentDidMount(){
   Axios.get('http://localhost:3333/smurfs')
   .then(res => {
-    console.log(res.data)
+    console.log(res.data, "This is inital data!")
     this.setState({
       smurfs: res.data
     })
+  })
+  .catch(err => {
+    console.log(err, "Gargamel got the initial village!")
+  })
+  }
+
+  addSmurf = () => {
+  Axios.post('http://localhost:3333/smurfs')
+  .then(res => {
+    console.log(res.data, "This is updated data!")
+    this.setState({
+      smurfs: res.data
+    })
+  })
+  .catch(err => {
+    console.log(err, "Gargamel got the updated village!")
   })
   }
 
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm addSmurf={this.addSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
