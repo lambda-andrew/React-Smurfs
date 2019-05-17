@@ -33,7 +33,19 @@ class App extends Component {
     axios
       .get("http://localhost:3333/smurfs")
       .then(res => this.setState({ smurfs: res.data }))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err.response))
+  }
+
+  addSmurf = (smurf) => {
+    axios
+      .post("http://localhost:3333/smurfs", smurf)
+      .then(res => {
+        this.setState({
+          smurfs: res.data
+        });
+        this.props.history.push("/");
+      })
+      .catch(err => console.log(err.response.data.Error))
   }
 
   render() {
@@ -44,7 +56,7 @@ class App extends Component {
           <NavLink to='/smurf-form'>Add A Smurf</NavLink>
         </NavBar>
         <Route exact path='/' render={props => ( <Smurfs {...props} smurfs={this.state.smurfs}/> )}/>
-        <Route path='/smurf-form' render={props => ( <SmurfForm {...props} smurfs={this.state.smurfs}/> )} />
+        <Route path='/smurf-form' render={props => ( <SmurfForm {...props} smurfs={this.state.smurfs} addSmurf={this.addSmurf}/> )} />
       </AppDiv>
       
     );

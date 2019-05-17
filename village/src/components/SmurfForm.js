@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import axios from 'axios';
-// import Smurf from './Smurf';
+import Smurf from './Smurf';
 
 import img from '../smurfs.jpg'
 
@@ -32,7 +31,7 @@ class SmurfForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      smurfs: {
+      smurf: {
       name: '',
       age: '',
       height: ''
@@ -41,20 +40,9 @@ class SmurfForm extends Component {
   }
 
   addSmurf = (event) => {
+    console.log(this.state.smurf)
     event.preventDefault();
-    axios
-      .post("http://localhost:3333/smurfs")
-      .then(res => {
-        this.setState({
-          smurfs: {
-          name: res.data.name,
-          age: res.data.age,
-          height: res.data.height,
-          }
-        });
-        this.props.history.push("/");
-      })
-      .catch(err => console.log(err.response.data.Error))
+    this.props.addSmurf(this.state.smurf)
   }
 
   handleInputChange = e => {
