@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -21,10 +21,14 @@ class App extends Component {
       .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err))
   }
-  // You'll need to make sure you have the right properties on state and pass them down to props.
+
   render() {
     return (
       <div className="App">
+        <nav>
+          <Link to='/'>Home</Link>
+          <Link to='/smurf-form'>Add A Smurf</Link>
+        </nav>
         <Route exact path='/' render={props => ( <Smurfs {...props} smurfs={this.state.smurfs}/> )}/>
         <Route path='/smurf-form' component={SmurfForm} />
       </div>
