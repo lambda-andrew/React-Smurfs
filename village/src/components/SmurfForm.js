@@ -27,6 +27,10 @@ border-radius: 5px;
 margin: 40px;
 font-size: 15px;
 border: none;
+:hover {
+  background-color: white;
+  border : #62fdbe solid 5px;
+}
 `;
 
 

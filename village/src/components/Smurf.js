@@ -18,12 +18,17 @@ const NameH3 = styled.h3`
 font-size: 25px;
 `;
 
+const Strong = styled.strong`
+font-size: 20px;
+`;
+
+
 const Smurf = props => {
   return (
     <SmurfDiv>
       <NameH3><strong>{props.name}</strong></NameH3>
-      <p>{props.height} TALL</p>
-      <p>{props.age} SMURF YEARS OLD </p>
+      <p><Strong>{props.height} </Strong>TALL</p>
+      <p><Strong>{props.age} </Strong>SMURF YEARS OLD </p>
     </SmurfDiv>
   );
 };
