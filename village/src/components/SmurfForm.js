@@ -1,7 +1,32 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import axios from 'axios';
 // import Smurf from './Smurf';
+
+import img from '../smurfs-cartoon.jpg'
+
+const SmurfFormDiv = styled.div`
+img{
+  border-radius: 8px
+  border: 2px solid black
+}
+form {
+  margin-left: 13px;
+  margin-top: 10px
+}
+input {
+  width: 150px
+  height: 30px
+  margin-right: 5px
+  text-align: end
+}
+button {
+  width: 150px
+  height: 30px
+  font-family: 'Fredoka One', cursive;
+  font-size: .75rem
+}`;
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -38,7 +63,8 @@ class SmurfForm extends Component {
 
   render() {
     return (
-      <div className="SmurfForm">
+      <SmurfFormDiv>
+        <img src={img}/>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -60,7 +86,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      </div>
+      </SmurfFormDiv>
     );
   }
 }
