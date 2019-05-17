@@ -9,11 +9,11 @@ const Home = () => {
             <div className="optionsbox">
                 <div className="options">
                     <h5>List of Smurfs:</h5>
-                    <p>This is a list of all Smurfs currently in the Village</p>
+                    <p>This is a list of all Smurfs currently in the Village!</p>
                 </div>
-                <div className="options-1">
+                <div className="options">
                     <h5>Add A Smurf:</h5>
-                    <p>This is where you can add a Smurf of your very own!s</p>
+                    <p>This is where you can add a Smurf of your very own!</p>
                 </div>
             </div>
         </div>

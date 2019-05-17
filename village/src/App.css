@@ -9,6 +9,14 @@ a {
   text-decoration: none;
   margin: 0 5px 0 5px;
 }
+a:first-child {
+  margin-left: 0;
+}
+.active {
+  color:white;
+  background:#88ccff;
+  border: 1px solid black;
+}
 a:hover {
   color:white;
   background:#88ccff;
@@ -20,19 +28,25 @@ a:hover {
   justify-content: center;
   align-items:center;
 }
-.options-1{
+.options {
+  border: 1px dashed lightgrey;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-flow: column wrap;
   margin: 5px; 
-  border-left: 1px solid black;
-  padding-left: 10px;
+  padding: 5px;
 }
-.options{
+.optionsbox {
   display: flex;
-  flex-flow: column wrap;
-  margin: 5px; 
-}
-.optionsbox{
-  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 5px;
+}
+.homelinks {
+  margin-left: 25px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }

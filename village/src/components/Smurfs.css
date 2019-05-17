@@ -29,3 +29,18 @@
     margin: 0 5px 0 5px;
     background: none;
 }
+.smurfbutton:hover{
+    color:white;
+    background:#88ccff;
+    border: 1px solid black;
+}
+.smurfform {
+    margin-top: 50px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.smurfinput {
+    margin: 10px;
+}

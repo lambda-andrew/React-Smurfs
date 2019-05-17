@@ -73,6 +73,7 @@ class App extends Component {
       this.setState({
         smurfs: res.data,
       })
+      this.props.history.push("/smurfs")
     })
     .catch(err => {
       console.log(err, "False alarm everybody! Go back to your Smurf duties!")
@@ -84,12 +85,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Smurf Village</h1>
-        <nav className="navs">
-          <NavLink exact to="/">Home</NavLink><br></br>
-          <NavLink to ="/smurfs">List of Smurfs</NavLink><br></br>
-          <NavLink to ="/smurf-form">Add A Smurf!</NavLink>
-        </nav>
+        <div className="homelinks">
+          <h1>Smurf Village</h1>
+          <nav className="navs">
+            <NavLink exact to="/" activeClassName="active">Home</NavLink><br></br>
+            <NavLink to ="/smurfs" activeClassName="active">List of Smurfs</NavLink><br></br>
+            <NavLink to ="/smurf-form" activeClassName="active">Add A Smurf!</NavLink>
+          </nav>
+        </div>
         <Route exact path="/" component={Home}/>
         <Route exact path="/smurfs" render={props => (<Smurfs {...props} smurfs={this.state.smurfs}/>) }/>
         <Route path="/smurf-form" render={props => (<SmurfForm {...props} addSmurf={this.addSmurf} activeSmurf={this.state.activeSmurf} updateSmurf={this.updateSmurf}/>) }/>

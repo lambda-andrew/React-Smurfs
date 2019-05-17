@@ -25,8 +25,10 @@ function Smurf (props) {
       <h3>{item.name}</h3>
       <strong>{item.height} tall</strong>
       <p>{item.age} smurf years old</p>
-      <button className="smurfbutton" onClick={deleteHandler}>Delete Smurf!</button>
-      <button className="smurfbutton" onClick={populateHandler}>Update Smurf!</button>
+      <div className="buttons">
+        <button className="smurfbutton" onClick={deleteHandler}>Delete Smurf!</button>
+        <button className="smurfbutton" onClick={populateHandler}>Update Smurf!</button>
+      </div>
     </div>
   );
 };
