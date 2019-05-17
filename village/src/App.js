@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import Smurf from './components/Smurf';
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +37,26 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  deleteSmurf = id => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        this.setState({
+          smurfs: res.data
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  updateSmurf = (smurf, id) => {
+    axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then(res => {
+        this.setState({
+          smurfs: res.data
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
@@ -48,8 +69,9 @@ class App extends Component {
             <NavLink to='/smurf-form'>Add New Smurf</NavLink>
           </div>
         </nav>
-        <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs}/> }/>
+        <Route exact path='/' render={props => <Smurfs {...props} smurfs={this.state.smurfs} update={this.updateSmurf} delete={this.deleteSmurf}/> }/>
         <Route path='/smurf-form' render={props => <SmurfForm {...props} add={this.addNewSmurf}/> }/>
+        {/* <Route path='/smurt/:id' render={props => <Smurf {...props} />}/> */}
       </div>
     );
   }
